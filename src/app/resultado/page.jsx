@@ -86,29 +86,31 @@ export default function Resultado() {
           Seu meme está pronto!
         </h1>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="relative overflow-hidden rounded-xl">
-            <img
-              src={meme.imagem1}
-              alt="Primeira parte do meme"
-              className="aspect-square w-full object-cover"
-            />
-            <p className="absolute bottom-0 w-full bg-black/70 p-4 text-center text-xl font-black uppercase">
-              {meme.texto1}
-            </p>
-          </div>
+<div className="mx-auto max-w-2xl overflow-hidden rounded-xl bg-black">
+  <div className="relative">
+    <img
+      src={meme.imagem1}
+      alt="Primeira parte do meme"
+      className="block w-full object-cover"
+    />
 
-          <div className="relative overflow-hidden rounded-xl">
-            <img
-              src={meme.imagem2}
-              alt="Segunda parte do meme"
-              className="aspect-square w-full object-cover"
-            />
-            <p className="absolute bottom-0 w-full bg-black/70 p-4 text-center text-xl font-black uppercase">
-              {meme.texto2}
-            </p>
-          </div>
-        </div>
+    <p className="absolute bottom-0 w-full bg-black/70 p-4 text-center text-xl font-black uppercase text-white">
+      {meme.texto1}
+    </p>
+  </div>
+
+  <div className="relative">
+    <img
+      src={meme.imagem2}
+      alt="Segunda parte do meme"
+      className="block w-full object-cover"
+    />
+
+    <p className="absolute bottom-0 w-full bg-black/70 p-4 text-center text-xl font-black uppercase text-white">
+      {meme.texto2}
+    </p>
+  </div>
+</div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <button
