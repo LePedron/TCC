@@ -76,11 +76,10 @@ export default function Editor() {
                 key={imagem}
                 type="button"
                 onClick={() => selecionarImagem(imagem)}
-                className={`overflow-hidden rounded-xl border-4 text-left transition ${
-                  selecionada
+                className={`overflow-hidden rounded-xl border-4 text-left transition ${selecionada
                     ? "border-purple-500 scale-[0.98]"
                     : "border-gray-800 hover:border-purple-300"
-                }`}
+                  }`}
               >
                 <img
                   src={imagem}
@@ -103,28 +102,32 @@ export default function Editor() {
         </h2>
 
         {selecionadas.length === 2 ? (
-          <div className="mx-auto max-w-2xl overflow-hidden rounded-xl border-4 border-purple-500 bg-black">
-            {selecionadas.map((imagem, indice) => (
-              <div key={imagem} className="relative">
-                <img
-                  src={imagem}
-                  alt={`Parte ${indice + 1} do meme`}
-                  className="block h-auto w-full"
-                />
+  <div className="mx-auto grid max-w-4xl grid-cols-2 items-stretch overflow-hidden rounded-xl border-4 border-purple-500 bg-black">
+    {selecionadas.map((imagem, indice) => (
+      <div
+        key={imagem}
+        className="relative min-w-0"
+      >
+        <img
+          src={imagem}
+          alt={`Parte ${indice + 1} do meme`}
+          className="block aspect-square h-full w-full object-cover"
+        />
 
-                <p className="absolute bottom-3 left-2 right-2 text-center text-2xl font-black uppercase text-white [text-shadow:2px_2px_3px_black,-2px_-2px_3px_black] sm:text-3xl">
-                  {indice === 0
-                    ? texto1 || "Seu primeiro texto"
-                    : texto2 || "Seu segundo texto"}
-                </p>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="rounded-xl bg-gray-800 p-8 text-center text-gray-300">
-            Selecione duas imagens acima para ver seu meme montado!
-          </div>
-        )}
+        <p className="absolute bottom-3 left-1 right-1 text-center text-sm font-black uppercase text-white [text-shadow:2px_2px_3px_black,-2px_-2px_3px_black] sm:text-xl">
+          {indice === 0
+            ? texto1 || "Seu primeiro texto"
+            : texto2 || "Seu segundo texto"}
+        </p>
+      </div>
+    ))}
+  </div>
+) : (
+  <div className="rounded-xl bg-gray-800 p-8 text-center text-gray-300">
+    Selecione duas imagens acima para ver seu meme montado!
+  </div>
+)}
+
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           <label className="font-semibold">
